@@ -19,7 +19,7 @@
 ```bash
 sudo apt-get install build-essential python3
 # 仅当需要 ARM 编译或数字 RTL 回归
-sudo apt-get install gcc-arm-linux-gnueabihf iverilog
+sudo apt-get install gcc-arm-linux-gnueabihf libc6-dev-armhf-cross iverilog
 ```
 
 无额外 Python 包依赖。Linux framebuffer、input、mmap 等接口来自系统头文件。`libm` 与 pthread 由系统工具链提供。
@@ -39,6 +39,8 @@ python3 tools/build.py rtl-test
 `test --sanitize` 可选地启用 ASan/UBSan；是否适用应结合当前编译器和平台。CI 默认执行普通回归。测试覆盖 FFT 数学、低频统计、示波器精度辅助函数、测量质量、频谱 MASK、公式波形包、向量计算、运行期事务、异步存储、证据流水线和 HOLD UI/配置。
 
 测试程序不运行应用主循环，不操作 `/dev/mem`、LCD 或发生器。HOLD 回归复用实际应用辅助函数，并使用伪发生器回调和临时文件目录。
+
+频谱 MASK 核心的旧版单元测试单独关闭后续资格扩展宏；正式应用、运行期合同和 HOLD 回归仍使用正式资格逻辑。证据流水线的存储故障注入回归显式启用 `SM693_TESTING`，该宏不用于正式应用构建。
 
 ## FPGA 参考与限制
 
