@@ -17,7 +17,7 @@ jobs:
         run: python3 tools/build.py app
       - name: Install ARM compiler and RTL simulator
         if: ${{ !cancelled() }}
-        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends gcc-arm-linux-gnueabihf iverilog
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends gcc-arm-linux-gnueabihf libc6-dev-armhf-cross iverilog
       - name: Cross-compile ARM application (do not run)
         if: ${{ !cancelled() }}
         run: python3 tools/build.py app --cc arm-linux-gnueabihf-gcc

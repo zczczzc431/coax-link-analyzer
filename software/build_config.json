@@ -143,6 +143,9 @@
         "mask655/mask_audit655.c",
         "spectrum_async693.c",
         "spectrum_pipeline693.c"
+      ],
+      "extra_flags": [
+        "-DSM693_TESTING=1"
       ]
     },
     {
