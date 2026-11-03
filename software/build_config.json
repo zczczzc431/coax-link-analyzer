@@ -1,0 +1,190 @@
+{
+  "sources": [
+    "adc_scope_gen_display.c",
+    "custom_ui_model.c",
+    "custom_wave/formula/formula_engine.c",
+    "custom_wave/package/custom_wavegen_package.c",
+    "custom_ui_backend.c",
+    "custom_wave/backend/custom_wave_backend.c",
+    "custom_wave/backend/custom_wave_guarded_backend.c",
+    "custom_wave/backend/custom_wave_guard_mmio_linux.c",
+    "custom_wave/backend/custom_wave_mmio_adapter_linux.c",
+    "diag_ui_model.c",
+    "monitor_core.c",
+    "reflect_raw_ui.c",
+    "fr_raw_capture.c",
+    "fr_ps_adapter.c",
+    "fr_dac_job.c",
+    "fr_dac_owner.c",
+    "rf_emio_gpio.c",
+    "fr_backend_context.c",
+    "fr_platform_files.c",
+    "fr_writer_probe.c",
+    "fr_vector_math.c",
+    "fr_vector_ui.c",
+    "fr_manual_reflect.c",
+    "fr_manual_session.c",
+    "health_fingerprint.c",
+    "monitor_event_health.c",
+    "rf_metrics.c",
+    "signal_trends.c",
+    "measurement_quality.c",
+    "measurement_quality_report.c",
+    "spectrum_mask612.c",
+    "spectrum_evidence613.c",
+    "spectrum_runtime616.c",
+    "spectrum_codec614.c",
+    "spectrum_store614.c",
+    "mask654/spectrum_qualification654.c",
+    "mask655/mask_audit655.c",
+    "spectrum_async693.c",
+    "spectrum_pipeline693.c"
+  ],
+  "flags": [
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pthread",
+    "-I.",
+    "-Imask654",
+    "-Imask655",
+    "-DSPECTRUM_QUALIFICATION654=1",
+    "-DMONITOR_ASYNC694=1"
+  ],
+  "tests": [
+    {
+      "name": "fft_physics",
+      "sources": [
+        "test_fft_physics.c"
+      ]
+    },
+    {
+      "name": "low_frequency",
+      "sources": [
+        "test_lowfreq681.c"
+      ]
+    },
+    {
+      "name": "scope_precision",
+      "sources": [
+        "test_precision682.c"
+      ]
+    },
+    {
+      "name": "scope_statistics",
+      "sources": [
+        "test_scope_stats683.c"
+      ]
+    },
+    {
+      "name": "measurement_quality",
+      "sources": [
+        "test_measurement_quality.c",
+        "measurement_quality.c"
+      ]
+    },
+    {
+      "name": "spectrum_mask",
+      "sources": [
+        "test_spectrum_mask612.c",
+        "spectrum_mask612.c"
+      ]
+    },
+    {
+      "name": "formula_package",
+      "sources": [
+        "test_custom_math515.c",
+        "custom_wave/formula/formula_engine.c",
+        "custom_wave/package/custom_wavegen_package.c"
+      ]
+    },
+    {
+      "name": "vector_math",
+      "sources": [
+        "test_fr_vector_math.c",
+        "fr_vector_math.c"
+      ]
+    },
+    {
+      "name": "runtime_contract",
+      "sources": [
+        "test_contract693.c",
+        "spectrum_mask612.c",
+        "spectrum_evidence613.c",
+        "spectrum_runtime616.c",
+        "spectrum_codec614.c",
+        "spectrum_store614.c",
+        "mask654/spectrum_qualification654.c",
+        "mask655/mask_audit655.c"
+      ]
+    },
+    {
+      "name": "async_storage",
+      "sources": [
+        "test_async693.c",
+        "spectrum_async693.c"
+      ]
+    },
+    {
+      "name": "evidence_pipeline",
+      "sources": [
+        "test_pipeline693.c",
+        "spectrum_mask612.c",
+        "spectrum_evidence613.c",
+        "spectrum_runtime616.c",
+        "spectrum_codec614.c",
+        "spectrum_store614.c",
+        "mask654/spectrum_qualification654.c",
+        "mask655/mask_audit655.c",
+        "spectrum_async693.c",
+        "spectrum_pipeline693.c"
+      ]
+    },
+    {
+      "name": "recovery_hold",
+      "sources": [
+        "test_hold699.c",
+        "custom_ui_model.c",
+        "custom_wave/formula/formula_engine.c",
+        "custom_wave/package/custom_wavegen_package.c",
+        "custom_ui_backend.c",
+        "custom_wave/backend/custom_wave_backend.c",
+        "custom_wave/backend/custom_wave_guarded_backend.c",
+        "custom_wave/backend/custom_wave_guard_mmio_linux.c",
+        "custom_wave/backend/custom_wave_mmio_adapter_linux.c",
+        "diag_ui_model.c",
+        "monitor_core.c",
+        "reflect_raw_ui.c",
+        "fr_raw_capture.c",
+        "fr_ps_adapter.c",
+        "fr_dac_job.c",
+        "fr_dac_owner.c",
+        "rf_emio_gpio.c",
+        "fr_backend_context.c",
+        "fr_platform_files.c",
+        "fr_writer_probe.c",
+        "fr_vector_math.c",
+        "fr_vector_ui.c",
+        "fr_manual_reflect.c",
+        "fr_manual_session.c",
+        "health_fingerprint.c",
+        "monitor_event_health.c",
+        "rf_metrics.c",
+        "signal_trends.c",
+        "measurement_quality.c",
+        "measurement_quality_report.c",
+        "spectrum_mask612.c",
+        "spectrum_evidence613.c",
+        "spectrum_runtime616.c",
+        "spectrum_codec614.c",
+        "spectrum_store614.c",
+        "mask654/spectrum_qualification654.c",
+        "mask655/mask_audit655.c",
+        "spectrum_async693.c",
+        "spectrum_pipeline693.c"
+      ]
+    }
+  ]
+}
