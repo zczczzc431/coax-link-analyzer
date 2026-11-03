@@ -13,10 +13,14 @@ jobs:
       - name: Run offline C regressions
         run: python3 tools/build.py test
       - name: Compile Linux application (do not run)
+        if: ${{ !cancelled() }}
         run: python3 tools/build.py app
       - name: Install ARM compiler and RTL simulator
+        if: ${{ !cancelled() }}
         run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends gcc-arm-linux-gnueabihf iverilog
       - name: Cross-compile ARM application (do not run)
+        if: ${{ !cancelled() }}
         run: python3 tools/build.py app --cc arm-linux-gnueabihf-gcc
       - name: Check ADC elaboration and DAC reference simulation
+        if: ${{ !cancelled() }}
         run: python3 tools/build.py rtl-test

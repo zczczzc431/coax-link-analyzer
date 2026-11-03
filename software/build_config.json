@@ -90,6 +90,9 @@
       "sources": [
         "test_spectrum_mask612.c",
         "spectrum_mask612.c"
+      ],
+      "extra_flags": [
+        "-USPECTRUM_QUALIFICATION654"
       ]
     },
     {

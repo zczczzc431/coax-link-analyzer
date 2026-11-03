@@ -37,13 +37,19 @@ def tests(cc, sanitize=False):
         (work / "hold").mkdir()
         for case in CONFIG["tests"]:
             binary = work / case["name"]
-            definitions = []
+            definitions = list(case.get("extra_flags", []))
             if case["name"] == "recovery_hold":
                 definitions = ['-DTEST699_ROOT="' + (work / "hold").as_posix() + '"']
-            compile_c(cc, case["sources"], binary, definitions, sanitize)
-            run([binary], work, timeout=120)
-            results.append({"name": case["name"], "passed": True})
+            try:
+                compile_c(cc, case["sources"], binary, definitions, sanitize)
+                run([binary], work, timeout=120)
+                results.append({"name": case["name"], "passed": True})
+            except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+                results.append({"name": case["name"], "passed": False})
     (BUILD / "test-results.json").write_text(json.dumps(results, indent=2) + "\n")
+    if not all(item["passed"] for item in results):
+        print(json.dumps(results, indent=2))
+        raise SystemExit("OFFLINE_TESTS_FAILED: see build/test-results.json")
     print(f"OFFLINE_TESTS_PASS count={len(results)} hardware_access=none")
 
 
